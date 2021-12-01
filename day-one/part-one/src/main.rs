@@ -16,8 +16,8 @@ fn main() {
             continue;
         }
 
-        let num= line.parse::<i32>();
-        let num= match num {
+        let num = line.parse::<i32>();
+        let num = match num {
             Ok(num) => num,
             Err(error) => {
                 println!("Error parsing number '{}' - {:?}, skipping...", line, error);
