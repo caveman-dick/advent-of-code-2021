@@ -15,15 +15,18 @@ fn main() {
         .collect();
 
     let mut answer = 0;
-    let mut previous_value = 0;
 
     for (idx, num) in numbers.iter().enumerate() {
-        if idx > 0 && previous_value < *num {
+        if idx == 0 {
+            continue;
+        }
+
+        let previous_value = &numbers[idx-1];
+
+        if previous_value < num {
             println!("{} is less than {}", previous_value, num);
             answer += 1;
         }
-
-        previous_value = *num;
     }
 
     println!("The answer is {}", answer);
