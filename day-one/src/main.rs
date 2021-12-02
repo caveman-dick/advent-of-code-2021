@@ -29,5 +29,22 @@ fn main() {
         }
     }
 
-    println!("The answer is {}", answer);
+    println!("The answer to part one is {}", answer);
+
+    answer = 0;
+    for (idx, num) in numbers.iter().enumerate() {
+        if idx < 3 {
+            continue;
+        }
+
+        let previous_value = numbers[idx-1] + numbers[idx-2] + numbers[idx-3];
+        let current_value = numbers[idx] + numbers[idx-1] + numbers[idx-2];
+
+        if previous_value < current_value {
+            println!("{} is less than {}", previous_value, num);
+            answer += 1;
+        }
+    }
+
+    println!("The answer to part two is {}", answer);
 }
